@@ -1,0 +1,1 @@
+[{"date": "2026-03-19T16:00:26.529900", "wage": 5000, "expenses": [{"name": "Cilios", "amount": 100}, {"name": "Sobrancelha", "amount": 30}, {"name": "Cabelo", "amount": 300}, {"name": "Unha", "amount": 50}, {"name": "Ifood (nao faz comida)", "amount": 1000}], "total_expenses": 1480, "leftover": 3520, "limiter": "Primeiro registro", "goal": 10000, "total_saved": 3520}]

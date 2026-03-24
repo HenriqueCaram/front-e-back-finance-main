@@ -1,0 +1,18 @@
+{
+  "henrique": {
+    "email": "caram.henrique@gmail.com",
+    "phone": "+55 21 976323133",
+    "social_links": {
+      "github": "https://github.com/HenriqueCaram",
+      "linkedin": "https://linkedin.com/in/HenriqueCaram"
+    }
+  },
+  "maria": {
+    "email": "maria@example.com",
+    "phone": "+55 (11) 12345-6789",
+    "social_links": {
+      "linkedin": "https://linkedin.com/in/maria",
+      "github": "https://github.com/maria"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+# MoneyApp - COMPLETE ✅\n\n• Challenges UI → \"challenge invitations\"\n• ☰ Hamburger menu dropdown with tabs:\n  • 📊 Dashboard\n  • 🏆 Rankings\n  • 👥 Friends\n  • 🔔 Challenge Invitations\n\nClick ☰ (works everywhere), selects page + closes. Avatar dropdown intact.\n\nRun `cd frontend` + `npm run dev` to test!\n

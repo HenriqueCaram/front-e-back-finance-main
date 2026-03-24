@@ -1,0 +1,50 @@
+{
+  "maria": [
+    {
+      "id": 1,
+      "type": "challenge",
+      "from": "henrique",
+      "message": "henrique invited you to a savings challenge!",
+      "date": "2026-03-23T15:40:30.634728",
+      "status": "accepted"
+    },
+    {
+      "id": 2,
+      "type": "challenge_accepted",
+      "from": "henrique",
+      "message": "henrique accepted your challenge!",
+      "date": "2026-03-23T16:25:16.656968",
+      "status": "accepted",
+      "opponent": "henrique"
+    }
+  ],
+  "henrique": [
+    {
+      "id": 1,
+      "type": "challenge",
+      "from": "maria",
+      "message": "maria invited you to a savings challenge!",
+      "date": "2026-03-23T16:25:07.330455",
+      "status": "accepted"
+    },
+    {
+      "id": 2,
+      "type": "challenge",
+      "from": "roberto",
+      "message": "roberto invited you to a savings challenge!",
+      "date": "2026-03-23T20:17:50.583285",
+      "status": "accepted"
+    }
+  ],
+  "roberto": [
+    {
+      "id": 1,
+      "type": "challenge_accepted",
+      "from": "henrique",
+      "message": "henrique accepted your challenge!",
+      "date": "2026-03-23T20:17:59.672218",
+      "status": "accepted",
+      "opponent": "henrique"
+    }
+  ]
+}
