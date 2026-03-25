@@ -4,7 +4,7 @@ from datetime import datetime
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:5173", "https://noncoplanar-unethnologic-german.ngrok-free.dev"])
 
 BASE_FOLDER = 'data'
 os.makedirs(BASE_FOLDER, exist_ok=True)
@@ -230,15 +230,45 @@ def delete_record(user, index):
 
 @app.route("/finance/<user>/<int:index>", methods=["PUT"])
 def edit_record(user, index):
-    data = load_finance(user)
+    records = load_finance(user)
     new_data = request.json
 
-    if 0 <= index < len(data):
-        data[index].update(new_data)
-        save_finance(user, data)
-        return jsonify(data[index])
+    if not (0 <= index < len(records)):
+        return jsonify({"error": "Invalid index"}), 400
 
-    return jsonify({"error": "Invalid index"}), 400
+    old_record = records[index]
+    old_leftover = old_record.get("leftover", 0)
+
+    # New values from request
+    new_wage = new_data.get("wage", old_record.get("wage", 0))
+    new_expenses = new_data.get("expenses", old_record.get("expenses", []))
+    new_limiter = new_data.get("limiter", old_record.get("limiter", ""))
+    new_goal = new_data.get("goal", old_record.get("goal", None))
+
+    # Recalculate
+    total_expenses = sum(float(exp.get("amount", 0)) for exp in new_expenses)
+    new_leftover = new_wage - total_expenses
+
+    # Update savings with delta
+    savings = load_savings(user)
+    delta = new_leftover - old_leftover
+    savings["total_saved"] += delta
+    save_savings(user, savings)
+
+    # Update record completely
+    records[index] = {
+        "date": old_record["date"],
+        "wage": new_wage,
+        "expenses": new_expenses,
+        "total_expenses": total_expenses,
+        "leftover": new_leftover,
+        "limiter": new_limiter,
+        "goal": new_goal,
+        "total_saved": savings["total_saved"]
+    }
+
+    save_finance(user, records)
+    return jsonify(records[index])
 
 @app.route("/user/<user>", methods=["GET"])
 def get_user_profile(user):

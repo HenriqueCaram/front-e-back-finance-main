@@ -98,9 +98,14 @@ function Dashboard({ user, setUser }) {
 
     try {
       if (editingIndex !== null) {
+        const totalExpenses = validExpenses.reduce((sum, exp) => sum + (exp.amount || 0), 0);
+        const leftover = wageNum - totalExpenses;
+        
         await api.put(`/finance/${user}/${editingIndex}`, {
           wage: wageNum,
           expenses: validExpenses,
+          total_expenses: totalExpenses,
+          leftover,
           limiter,
           goal: goalNum
         });
