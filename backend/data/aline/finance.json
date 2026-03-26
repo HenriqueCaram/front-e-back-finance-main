@@ -1,0 +1,1 @@
+[{"date": "2026-03-26T17:17:46.325241", "wage": 5000, "expenses": [{"name": "10000", "amount": 0}], "total_expenses": 0, "leftover": 5000, "limiter": "", "goal": null, "total_saved": 5000}, {"date": "2026-03-26T17:18:20.362364", "wage": 5000, "expenses": [], "total_expenses": 0, "leftover": 5000, "limiter": "", "goal": null, "total_saved": 10000}]
